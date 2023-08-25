@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Questions</title>
+	<th:block th:insert="/fragment/head::head"></th:block>
+</head>
+<body>
+
+
+
+<div id="wrap" class="grid_1200">
+	<th:block th:insert="fragment/header::hh"></th:block>
+
+
+
+	<section class="container main-content" style="margin-top: 70px;">
+		<div class="row">
+			<div class="col-md-9" >
+				<th:block th:each="question : ${questions}">
+					<article class="question question-type-normal">
+						<h2>
+							<a th:href="@{|/questions/${question.id}|}" th:text="${question.title}"></a>
+						</h2>
+						<a class="question-report" href="#">Report</a>
+						<div class="question-type-main"><i class="icon-question-sign"></i>Question</div>
+						<div class="question-author">
+							<a href="#" th:attr="original-title=${question.userFullName}" class="question-author-img tooltip-n"><span></span><img alt="" th:src="@{${'/avatar/' + question.userAvatar}}"></a>
+						</div>
+						<div class="question-inner">
+							<div class="clearfix"></div>
+							<p class="question-desc" th:text="${question.body}"></p>
+							<div class="question-details">
+								<span class="question-answered"><span th:text="${question.status}"></span></span>
+								<span class="question-favorite"><i class="icon-star"></i><span th:text="${question.favoriteCount}"></span></span>
+							</div>
+							<span class="question-category"><i class="icon-folder-close"></i><span th:text="${question.category.name}"></span></span>
+							<span class="question-date"><i class="icon-time"></i><span th:text="${question.createdDate}"></span></span>
+							<span class="question-comment"><i class="icon-comment"></i> <span th:text="${question.answerCount} + ' answer'"></span></span>
+							<span class="question-view"><i class="icon-user"></i><span th:text="${question.viewCount} + ' views'"></span></span>
+							<div class="clearfix"></div>
+						</div>
+					</article>
+				</th:block>
+
+				<th:block th:insert="fragment/pagination::pagination"></th:block><!-- End pagination -->
+			</div><!-- End main -->
+			<th:block th:insert="fragment/sidebar::sidebar"></th:block>
+		</div><!-- End row -->
+	</section><!-- End container -->
+
+	<th:block th:insert="fragment/footer::footer"></th:block>
+</div><!-- End wrap -->
+
+<th:block th:insert="fragment/script::script"></th:block>
+
+</body>
+
+</html>

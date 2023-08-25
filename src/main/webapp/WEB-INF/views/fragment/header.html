@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<body th:fragment="hh">
+
+
+  <div id="header-top">
+    <section class="container clearfix">
+      <nav class="header-top-nav">
+        <ul>
+          <li><a href="/contact"><i class="icon-envelope"></i>Contact</a></li>
+          <li><a href="#"><i class="icon-headphones"></i>Support</a></li>
+          <th:block th:if="${session.userIsLogin}">
+            <li><a href="/profile" th:utext="'<i class=&quot;icon-user&quot;></i> '+' Welcome ' + ${session.userIsLogin.username}"></a></li>
+          </th:block>
+
+          <th:block th:unless="${session.userIsLogin}">
+            <li><a href="/login"><i class="icon-signin"></i>Login</a></li>
+            <li><a href="/register">Signup</a></li>
+          </th:block>
+        </ul>
+      </nav>
+      <div class="header-search">
+        <form>
+          <input type="text" value="Search here ..." onfocus="if(this.value=='Search here ...')this.value='';" onblur="if(this.value=='')this.value='Search here ...';">
+          <button type="submit" class="search-submit"></button>
+        </form>
+      </div>
+    </section><!-- End container -->
+  </div><!-- End header-top -->
+
+<header id="header">
+  <section class="container clearfix">
+    <div class="logo"><a href="/"><img alt="" th:src="@{/images/logo.png}"></a></div>
+    <nav class="navigation">
+      <ul>
+        <li class="current_page_item"><a href="/">Home</a></li>
+        <li class="ask_question"><a th:href="@{/questions/ask}">Ask Question</a></li>
+        <li><a th:href="@{/questions}">Questions</a></li>
+        <li><a href="/category">Categories</a></li>
+      </ul>
+    </nav>
+  </section><!-- End container -->
+</header><!-- End header -->
+</body>
+</html>

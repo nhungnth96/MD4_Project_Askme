@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Login</title>
+	<th:block th:insert="/fragment/head::head"></th:block>
+</head>
+<body>
+
+
+
+<div id="wrap" class="grid_1200">
+
+
+
+	<th:block th:insert="fragment/header::hh" ></th:block>
+
+	
+	<section class="container main-content">
+		<div class="login">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="page-content" style="margin-top: 70px">
+						<div class="form-style form-style-3">
+							<form th:action="@{/login}" th:object="${loginForm}" method="post">
+								<div class="form-inputs clearfix">
+									<p class="login-text">
+										<input type="text" th:field="*{username}">
+										<i class="icon-user"></i>
+									</p>
+									<p class="login-password">
+										<input type="password" th:field="*{password}">
+										<i class="icon-lock"></i>
+										<a href="#">Forget Password?</a>
+									</p>
+								</div>
+								<p class="form-submit login-submit">
+									<input type="submit" value="Log in" class="button color small login-submit submit">
+								</p>
+								<div class="rememberme">
+									<label><input type="checkbox" checked="checked"> Remember Me</label>
+								</div>
+							</form>
+						</div>
+					</div><!-- End page-content -->
+				</div><!-- End col-md-6 -->
+
+			</div><!-- End row -->
+		</div><!-- End login -->
+	</section><!-- End container -->
+
+	<th:block th:insert="fragment/footer::footer"></th:block>
+</div><!-- End wrap -->
+<th:block th:insert="fragment/script::script"></th:block>
+</body>
+
+</html>

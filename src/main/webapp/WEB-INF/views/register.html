@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Register</title>
+  <th:block th:insert="/fragment/head::head"></th:block>
+</head>
+<body>
+
+
+
+<div id="wrap" class="grid_1200">
+
+
+  <th:block th:insert="fragment/header::hh" ></th:block>
+
+  <section class="container main-content">
+    <div class="login">
+      <div class="row">
+
+        <div class="col-md-6">
+          <div class="page-content" style="margin-top: 70px">
+          <div class="form-style form-style-3" >
+            <form th:action="@{/register}" th:object="${registerForm}" method="post">
+              <div class="form-inputs clearfix">
+                <p>
+                  <label class="required">Full Name<span>*</span></label>
+                  <input type="text" th:field="*{fullName}">
+                </p>
+                <p>
+                  <label class="required">E-Mail<span>*</span></label>
+                  <input type="email"  th:field="*{email}">
+                </p>
+                <p>
+                  <label class="required">Username<span>*</span></label>
+                  <input type="text" th:field="*{username}">
+                </p>
+                <p>
+                  <label class="required">Password<span>*</span></label>
+                  <input type="password" th:field="*{password}">
+                  <span>Passwords must contain at least eight characters, including
+                    at least 1 letter and 1 number.</span>
+                </p>
+              </div>
+              <p class="form-submit">
+                <input type="submit" value="Signup" class="button color small submit">
+              </p>
+            </form>
+          </div>
+          </div>
+        </div><!-- End col-md-6 -->
+      </div><!-- End row -->
+    </div><!-- End login -->
+
+  </section><!-- End container -->
+
+  <th:block th:insert="fragment/footer::footer"></th:block>
+</div><!-- End wrap -->
+<th:block th:insert="fragment/script::script"></th:block>
+</body>
+
+</html>

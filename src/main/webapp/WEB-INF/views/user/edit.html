@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Edit Profile</title>
+	<th:block th:insert="/fragment/head::head"></th:block>
+</head>
+<body>
+
+
+
+<div id="wrap" class="grid_1200">
+
+	<th:block th:insert="fragment/header::hh" ></th:block>
+	
+	<section class="container main-content">
+		<div class="row">
+			<div class="col-md-9">
+				<div class="page-content">
+					<div class="boxedtitle page-title"><h2>Edit Profile</h2></div>
+					
+					<div class="form-style form-style-4">
+						<form th:action="@{/users/update}" th:object="${editForm}" method="post" enctype="multipart/form-data">
+							<div class="form-inputs clearfix">
+
+								<p>
+									<label>Full Name</label>
+									<input type="text" th:field="*{fullName}">
+								</p>
+
+								<p>
+									<label>Address</label>
+									<input type="text" th:field="*{address}">
+								</p>
+
+							</div>
+							<div class="form-style form-style-2">
+
+								<p class="user-profile-p">
+									<label>Profile Picture</label>
+									<div >
+
+									<input type="file" th:field="*{avatar}" />
+<!--										<div class="fakefile">-->
+<!--											<button type="button" class="button small margin_0">Select file</button>-->
+<!--											<span><i class="icon-arrow-up"></i>Browse</span>-->
+<!--										</div>-->
+									</div>
+								<p></p>
+								<div class="clearfix"></div>
+								<p>
+									<label>About Yourself</label>
+									<textarea cols="58" rows="8" th:field="*{about}"></textarea>
+								</p>
+							</div>
+
+							<p class="form-submit">
+								<input type="submit" value="Update" class="button color small login-submit submit">
+							</p>
+						</form>
+					</div>
+				</div><!-- End page-content -->
+			</div><!-- End main -->
+			<th:block th:insert="fragment/sidebar::sidebar"></th:block><!-- End sidebar -->
+
+		</div><!-- End row -->
+	</section><!-- End container -->
+	<th:block th:insert="fragment/footer::footer"></th:block>
+
+</div><!-- End wrap -->
+
+<th:block th:insert="fragment/script::script"></th:block>
+
+</body>
+</html>
